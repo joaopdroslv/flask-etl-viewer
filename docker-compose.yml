@@ -1,0 +1,44 @@
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    restart: always
+    networks:
+      - my_network
+
+  generator:
+    build:
+      context: ./seed
+    volumes:
+      - ./repository:/app/repository
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
+    depends_on:
+      - mysql
+    networks:
+      - my_network
+
+  flask_app:
+    build:
+      context: ./frontend
+    volumes:
+      - ./repository:/app/repository
+    ports:
+      - "5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
+    depends_on:
+      - mysql
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
