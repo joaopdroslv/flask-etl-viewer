@@ -5,51 +5,64 @@ This project is a sales data pipeline and viewer application. It consists of sev
 ## Project Structure
 
 ```
-├── /flask-etl-viewer  # project root
+├── flask-etl-viewer/  # Project root
+|
 | ├── data-pipeline/  # Not ready yet
-| │ ├── config/ 
-| │ │ └── airflow.cfg 
-| │ ├── dags/
-| │ └── dockerfile 
+| ├── config/ 
+| │ ├── airflow.cfg 
+| ├── dags/
+| ├── dockerfile 
+|
 | ├── frontend/ 
-| │ ├── app/ 
-| │ │ ├── blueprints/ 
-| │ │ │ ├── __init__.py 
-| │ │ │ ├── health_check.py 
-| │ │ │ └── webui.py 
-| │ │ ├── static/ 
-| │ │ │ └── styles.css 
-| │ │ ├── templates/ 
-| │ │ │ ├── base.html 
-| │ │ │ ├── buyers.html 
-| │ │ │ ├── homepage.html 
-| │ │ │ ├── products.html 
-| │ │ │ ├── sales.html 
-| │ │ │ └── sellers.html 
+| ├── app/ 
+| │ ├── blueprints/ 
 | │ │ ├── __init__.py 
-| │ │ └── main.py 
-| │ ├── .env 
-| │ ├── dockerfile 
-| │ └── requirements.txt 
-| ├── repository/ 
+| │ │ ├── health_check.py 
+| │ │ ├── webui.py 
+| │ ├── static/ 
+| │ │ ├── styles.css 
+| │ ├── templates/ 
+| │ │ ├── base.html 
+| │ │ ├── buyers.html 
+| │ │ ├── homepage.html 
+| │ │ ├── products.html 
+| │ │ ├── sales.html 
+| │ │ ├── sellers.html 
 | │ ├── __init__.py 
-| │ ├── buyers.py 
-| │ ├── connection.py 
-| │ ├── products.py 
-| │ ├── sales.py 
-| │ └── sellers.py 
-| | ├── seeder/ 
-| | | ├── app/ 
-| │ | | ├── __init__.py 
-| │ | | ├── generator.py 
-| │ | | └── main.py 
-| | | ├── dockerfile 
-| | └── requirements.txt
-| ├── .gitignore 
-| ├── database.sql 
-| ├── docker-compose.yml 
-| └── README.md 
+| │ ├── main.py 
+| ├── .env 
+| ├── dockerfile 
+| ├── requirements.txt 
+|
+| ├── repository/ 
+| ├── __init__.py 
+| ├── buyers.py 
+| ├── connection.py 
+| ├── products.py 
+| ├── sales.py 
+| ├── sellers.py 
+|
+| ├── seeder/ 
+| ├── app/ 
+| | ├── __init__.py 
+| | ├── generator.py 
+| | ├── main.py 
+| ├── dockerfile 
+| ├── requirements.txt
+|
+├── .gitignore 
+├── database.sql 
+├── docker-compose.yml 
+├── README.md 
 ```
+
+## Technologies Used
+
+- Flask (Frontend)
+- MySQL (Database)
+- SQLAlchemy (ORM for database access)
+- Faker & SQLAlchemy (Database seeding)
+- Docker & Docker Compose (Containerization)
 
 ## Components
 
