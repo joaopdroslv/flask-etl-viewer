@@ -78,13 +78,13 @@ Allows you to see both the original database tables **(sales, products, buyers, 
 ## Setup
 
 1. **Clone the repository:**
-    ```sh
+    ```bash
     git clone <repository-url>
     cd flask-etl-viewer
     ```
 
 2. **Start the services using Docker Compose:**
-    ```sh
+    ```bash
     docker-compose up --build
     ```
 
