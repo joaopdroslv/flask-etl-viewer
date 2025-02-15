@@ -52,9 +52,6 @@ def generate_sale() -> None:
     sellers_repo = SellersRepository()
     sellers = sellers_repo.select()
 
-    # if len(products) == 0 or len(buyers) == 0 or len(sellers) == 0:
-    #     raise ValueError("No products, buyers or sellers found in the database.")
-
     payment_methods = [
         'Credit Card (Visa)', 'Credit Card (MasterCard)', 'Credit Card (American Express)', 
         'Debit Card', 'Pix', 'Cash', 'Bank Transfer', 'Cryptocurrency (Bitcoin)', 
@@ -66,10 +63,12 @@ def generate_sale() -> None:
     p_price = float(p_price)
 
     buyer = random.choice(buyers)
-    b_id, b_name, b_sex, b_age, b_address, b_contact, b_created_at, b_updated_at = buyer
+    b_id, b_name, b_sex, b_age, b_address, \
+        b_contact, b_created_at, b_updated_at = buyer
 
     seller = random.choice(sellers)
-    s_id, s_name, s_sex, s_age, s_address, s_contact, s_created_at, s_updated_at = seller
+    s_id, s_name, s_sex, s_age, s_address, \
+        s_contact, s_created_at, s_updated_at = seller
 
     start_date = datetime.date(2010, 1, 1)
     end_date = datetime.date(2025, 1, 1)

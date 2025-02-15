@@ -13,18 +13,19 @@ services:
 
   generator:
     build:
-      context: ./seed
+      context: ./seeder
     volumes:
       - ./repository:/app/repository
     environment:
       - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
     restart: always
     depends_on:
       - mysql
     networks:
       - my_network
 
-  flask_app:
+  frontend:
     build:
       context: ./frontend
     volumes:
@@ -33,6 +34,7 @@ services:
       - "5000:5000"
     environment:
       - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
     restart: always
     depends_on:
       - mysql

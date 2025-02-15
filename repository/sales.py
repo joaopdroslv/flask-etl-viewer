@@ -31,5 +31,14 @@ class SalesRepository:
 
     def select(self) -> list:
         with DBConnectionHandler() as db:
-            sales = db.session.execute(text("""SELECT * FROM sales"""))
-            return sales.fetchall()
+            sales = db.session.execute(text("""
+                SELECT sales.*, 
+                    products.name AS product_name, 
+                    buyers.name AS buyer_name,
+                    sellers.name AS seller_name
+                FROM sales
+                JOIN products ON sales.product_id = products.id
+                JOIN sellers ON sales.seller_id = sellers.id
+                JOIN buyers ON sales.buyer_id = buyers.id
+            """)).mappings()
+            return sales.all()

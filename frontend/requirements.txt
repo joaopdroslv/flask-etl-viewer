@@ -1,1 +1,7 @@
 flask
+python-dotenv  # Required by Flask
+
+# Required by repository
+SQLAlchemy==2.0.38
+PyMySQL==1.1.1
+cryptography
